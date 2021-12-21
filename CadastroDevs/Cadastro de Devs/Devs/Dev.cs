@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cadastro_de_Devs.Dev
+namespace Cadastro_de_Devs.Devs
 {
     public class Dev
     {
@@ -22,10 +22,10 @@ namespace Cadastro_de_Devs.Dev
 
         public DateTime CreatedAt { get; set; }
 
-        public static bool Validacao ()
+        /*public static bool Validacao ()
         {
             
             return false;
-        }
+        }*/
     }
 }
