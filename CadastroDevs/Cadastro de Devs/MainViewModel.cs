@@ -10,6 +10,8 @@ namespace Cadastro_de_Devs
     public class MainViewModel
     {
         public List<Dev> Desenvolvedores = new List<Dev>();
+
+        public Dev Desenvolvedor = new Dev();
         public MainViewModel()
         {
             //Metodo onde vai buscar os devs.

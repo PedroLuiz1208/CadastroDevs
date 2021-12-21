@@ -27,16 +27,28 @@
                         ToolTip="AO CLICAR VAI ATUALIZAR DOMINIOS DOS DEVS SELECIONADOS"  Click="AjustarSelecionados_Click">
                         ATUALIZAR DEVS SELECIONADOS
                     </Button>
-                    
+
                     <ListBox ItemsSource="{Binding Desenvolvedores}">
-                        
+
                     </ListBox>
 
                 </StackPanel>
             </TabItem>
 
-            <TabItem Header="INCLUIR DEV">
+            <TabItem Header="DEV UNICO">
 
+                <StackPanel>
+                    <Button HorizontalAlignment="Center" Height="20" MaxWidth="280" 
+                        ToolTip="ALTERAR UM DESENVOLVEDOR"  Click="Alterar_Click">
+                        ALTERAR
+                    </Button>
+
+                    <Button x:Name="Incluir" HorizontalAlignment="Center" Height="20" MaxWidth="280" 
+                        ToolTip="INCLUIR UM NOVO DESENVOLVEDOR"  Click="Incluir_Click">
+                        INCLUIR
+                    </Button>
+
+                </StackPanel>
             </TabItem>
 
         </TabControl>

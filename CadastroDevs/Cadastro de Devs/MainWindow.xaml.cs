@@ -31,11 +31,24 @@ namespace Cadastro_de_Devs
 
         private void Ajustar_Click(object sender, RoutedEventArgs e)
         {
+            //ViewModel.Ajustar(long);
 
         }
 
         private void AjustarSelecionados_Click(object sender, RoutedEventArgs e)
         {
+            //ViewModel.Ajustar(long);
+
+        }
+
+        private void Incluir_Click(object sender, RoutedEventArgs e)
+        {
+            //ViewModel.Incluir();
+        }
+
+        private void Alterar_Click(object sender, RoutedEventArgs e)
+        {
+            //ViewModel.Alterar();
 
         }
     }
