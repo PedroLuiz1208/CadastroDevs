@@ -1,0 +1,38 @@
+﻿<Window x:Class="Cadastro_de_Devs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cadastro_de_Devs"
+        mc:Ignorable="d"
+        Title="Devs" Height="450" Width="800">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Row="0"  HorizontalAlignment="Center" Height="20" MaxWidth="280" 
+                ToolTip="AO CLICAR VAI ATUALIZAR O DOMINIO DE TODOS OS DEVS"  Click="Ajustar_Click">
+            
+            ATUALIZAR DOMINIO
+        </Button>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="LISTA DE DEVS">
+
+                <Button Grid.Row="0"  HorizontalAlignment="Center" Height="20" MaxWidth="280" 
+                ToolTip="AO CLICAR VAI ATUALIZAR DOMINIOS DOS DEVS SELECIONADOS"  Click="AjustarSelecionados_Click">
+                    ATUALIZAR DEVS SELECIONADOS
+                </Button>
+
+            </TabItem>
+
+            <TabItem Header="INCLUIR DEV">
+
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>

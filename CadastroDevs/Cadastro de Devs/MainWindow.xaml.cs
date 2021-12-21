@@ -18,11 +18,25 @@ namespace Cadastro_de_Devs
     /// <summary>
     /// Interação lógica para MainWindow.xam
     /// </summary>
+    ///     
     public partial class MainWindow : Window
     {
+        MainViewModel ViewModel = new MainViewModel();
         public MainWindow()
         {
+            DataContext = ViewModel;
+
             InitializeComponent();
+        }
+
+        private void Ajustar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AjustarSelecionados_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
