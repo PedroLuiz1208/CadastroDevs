@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cadastro_de_Devs"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance local:MainViewModel}"
         Title="Devs" Height="450" Width="800">
+    <Window.Resources>
+        <CollectionViewSource x:Key="ItemCollectionViewSource" CollectionViewType="ListCollectionView"/>
+    </Window.Resources>
     <Grid>
 
         <Grid.RowDefinitions>
@@ -28,9 +32,10 @@
                         ATUALIZAR DEVS SELECIONADOS
                     </Button>
 
-                    <ListBox ItemsSource="{Binding Desenvolvedores}">
-
-                    </ListBox>
+                    <Grid>
+                        <DataGrid DataContext="{StaticResource ItemCollectionViewSource}" ItemsSource="{Binding}" AutoGenerateColumns="True">
+                        </DataGrid>
+                    </Grid>
 
                 </StackPanel>
             </TabItem>

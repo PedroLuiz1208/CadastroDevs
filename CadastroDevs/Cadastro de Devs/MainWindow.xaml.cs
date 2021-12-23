@@ -25,10 +25,17 @@ namespace Cadastro_de_Devs
         public MainWindow()
         {
             DataContext = ViewModel;
-
             InitializeComponent();
+            LinkTable();
+
         }
 
+        public void LinkTable()
+        {
+            CollectionViewSource itemCollectionViewSource;
+            itemCollectionViewSource = (CollectionViewSource)(FindResource("ItemCollectionViewSource"));
+            itemCollectionViewSource.Source = ViewModel.Desenvolvedores;
+        }
         private void Ajustar_Click(object sender, RoutedEventArgs e)
         {
             //ViewModel.Ajustar(long);
