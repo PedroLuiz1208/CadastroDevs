@@ -43,7 +43,10 @@
             <TabItem Header="DEV UNICO">
 
                 <StackPanel>
-                    <Button HorizontalAlignment="Center" Height="20" MaxWidth="280" 
+                    <Label ></Label>
+                    
+
+                        <Button HorizontalAlignment="Center" Height="20" MaxWidth="280" 
                         ToolTip="ALTERAR UM DESENVOLVEDOR"  Click="Alterar_Click">
                         ALTERAR
                     </Button>

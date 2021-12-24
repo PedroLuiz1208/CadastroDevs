@@ -39,10 +39,10 @@ namespace Cadastro_de_Devs.Devs
 
             client.BaseAddress = new Uri("https://61a170e06c3b400017e69d00.mockapi.io/DevTest");
 
-            HttpResponseMessage response = client.GetAsync("/Dev").Result;
+            HttpResponseMessage response = client.GetAsync("/Dev").Result; //HttpResponseMessage response = await client.GetAsync("/Dev");
             usuarioUri = response.Headers.Location;
 
-            var usuarios = response.Content.ReadAsStringAsync().Result;
+            var usuarios = await response.Content.ReadAsStringAsync();
    
             var listDev = JsonConvert.DeserializeObject<List<Dev>>(usuarios).AsEnumerable().ToList();
             return listDev;
