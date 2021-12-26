@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Cadastro_de_Devs"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance local:MainViewModel}"
-        Title="Devs" Height="450" Width="800">
+        x:Name="TelaPrincipal"
+        Title="Devs" Height="Auto" MinHeight="600"  MinWidth="800" Width="Auto">
     <Window.Resources>
         <CollectionViewSource x:Key="ItemCollectionViewSource" CollectionViewType="ListCollectionView"/>
     </Window.Resources>
@@ -17,45 +18,83 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-
-        <Button Grid.Row="0"  HorizontalAlignment="Center" Height="20" MaxWidth="280" 
-                ToolTip="AO CLICAR VAI ATUALIZAR O DOMINIO DE TODOS OS DEVS"  Click="Ajustar_Click">
-
-            ATUALIZAR DOMINIO
-        </Button>
-
         <TabControl Grid.Row="1">
             <TabItem Header="LISTA DE DEVS">
                 <StackPanel>
                     <Button HorizontalAlignment="Center" Height="20" MaxWidth="280" 
-                        ToolTip="AO CLICAR VAI ATUALIZAR DOMINIOS DOS DEVS SELECIONADOS"  Click="AjustarSelecionados_Click">
-                        ATUALIZAR DEVS SELECIONADOS
+                        ToolTip="AO CLICAR VAI ATUALIZAR DOMINIOS DOS DEVS"  Click="Ajustar_Click">
+                        ATUALIZAR DEVS
                     </Button>
 
                     <Grid>
-                        <DataGrid DataContext="{StaticResource ItemCollectionViewSource}" ItemsSource="{Binding}" AutoGenerateColumns="True">
+                        
+                        <DataGrid DataContext="{StaticResource ItemCollectionViewSource}" ItemsSource="{Binding}" AutoGenerateColumns="True" Height="600"
+                                  MouseDoubleClick="SelecionaDev" ToolTip="APERTE DUAS VEZES PARA SELECIONAR UM DEV" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
+
                         </DataGrid>
                     </Grid>
 
                 </StackPanel>
             </TabItem>
 
-            <TabItem Header="DEV UNICO">
-
+            <TabItem x:Name="DevUnico" Header="DEV UNICO" GotFocus="AtualizaDev">
                 <StackPanel>
-                    <Label ></Label>
-                    
+                    <Menu>
 
-                        <Button HorizontalAlignment="Center" Height="20" MaxWidth="280" 
-                        ToolTip="ALTERAR UM DESENVOLVEDOR"  Click="Alterar_Click">
-                        ALTERAR
-                    </Button>
+                        <Button Grid.Row="0" Height="20" MaxWidth="75" 
+                        ToolTip="BUSCAR DESENVOLVEDOR DESENVOLVEDOR"  Click="BuscarDev_Click">
+                            BUSCAR DEV POR NOME
+                        </Button>
 
-                    <Button x:Name="Incluir" HorizontalAlignment="Center" Height="20" MaxWidth="280" 
+                        <Button x:Name="Incluir" Grid.Row="0" Height="20" MaxWidth="75" 
                         ToolTip="INCLUIR UM NOVO DESENVOLVEDOR"  Click="Incluir_Click">
-                        INCLUIR
-                    </Button>
+                            INCLUIR
+                        </Button>
 
+                        <Button Grid.Row="0" Height="20" MaxWidth="75" 
+                        ToolTip="SALVAR DESENVOLVEDOR"  Click="Salvar_Click">
+                            ALTERAR
+                        </Button>
+
+                    </Menu>
+
+                    <Menu>
+                        <Grid Height="140" Width="803">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MaxWidth="300"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="300"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" MaxWidth="300"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="ID" Grid.Row="0" Grid.Column="0"/>
+                            <TextBox  Grid.Row="2" Grid.Column="0" IsEnabled="False" x:Name="IdDev" Width="50" Text="{Binding Desenvolvedor.Id, UpdateSourceTrigger=Explicit}" RenderTransformOrigin="0.5,0.45" Margin="0,9,150,-9"/>
+
+                            <TextBlock Text="DATA DE CRIAÇÃO" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="39,0,222,18" Grid.RowSpan="3"/>
+                            <TextBox Grid.Row="2" IsEnabled="False" Grid.Column="1" x:Name="DataDev" Width="100" Text="{Binding Desenvolvedor.CreatedAt, UpdateSourceTrigger=Explicit}" Margin="39,9,224,-9" Grid.ColumnSpan="2"/>
+
+                            <TextBlock Text="NOME" Grid.Row="2" Grid.Column="0" Margin="0,34,0,-34"/>
+                            <TextBox  Grid.Row="2" Width="200" Grid.Column="0" x:Name="NomeDev" Text="{Binding Desenvolvedor.Name, UpdateSourceTrigger=Explicit}" Margin="0,52,0,-52"/>
+
+                            <TextBlock Text="AVATAR" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="39,35,211,-35" />
+                            <TextBox  Grid.Row="2" Grid.Column="1" Width="200" x:Name="AvatarDev" Text="{Binding Desenvolvedor.Avatar, UpdateSourceTrigger=Explicit}" Grid.ColumnSpan="2" Margin="39,52,161,-52"/>
+
+                            <TextBlock Text="SQUAD" Grid.Row="2" Grid.Column="2" Margin="202,37,-201,-35" />
+                            <TextBox  Grid.Row="2" Width="200" Grid.Column="2" x:Name="SquadDev" Text="{Binding Desenvolvedor.Squad, UpdateSourceTrigger=Explicit}" Margin="195,52,-120,-52"/>
+
+                            <TextBlock Text="LOGIN" Grid.Row="2" Grid.Column="0" Margin="0,86,0,-86"/>
+                            <TextBox  Grid.Row="2" Width="200" Grid.Column="0" x:Name="LoginDev" Text="{Binding Desenvolvedor.Login, UpdateSourceTrigger=Explicit}" Margin="0,104,0,-104"/>
+
+                            <TextBlock Text="EMAIL" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="39,86,161,-86"/>
+                            <TextBox  Grid.Row="2" Width="200"  Grid.Column="1" x:Name="EmailDev" Text="{Binding Desenvolvedor.Email, UpdateSourceTrigger=Explicit}" Grid.ColumnSpan="2" Margin="39,104,161,-104"/>
+                        </Grid>
+
+                    </Menu>
                 </StackPanel>
             </TabItem>
 

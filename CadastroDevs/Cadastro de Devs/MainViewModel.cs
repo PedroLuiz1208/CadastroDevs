@@ -11,15 +11,21 @@ namespace Cadastro_de_Devs
     {
         public List<Dev> Desenvolvedores = new List<Dev>();
 
-        public Dev Desenvolvedor = new Dev();
+        public Dev _desenvolvedor;
+
+        public Dev Desenvolvedor
+        {
+            get { return _desenvolvedor; }
+            set { _desenvolvedor = value;}
+        }
+
         public MainViewModel()
         {
             DevServico auxDev = new DevServico();
-            Desenvolvedores = auxDev.BuscaDevs().Result;            
-            //Metodo onde vai buscar os devs.
+            Desenvolvedores = auxDev.BuscaDevs().Result;
         }
 
-        private  void BuscarDev()
+        private void BuscarDev()
         {
 
         }

@@ -22,10 +22,5 @@ namespace Cadastro_de_Devs.Devs
 
         public DateTime CreatedAt { get; set; }
 
-        /*public static bool Validacao ()
-        {
-            
-            return false;
-        }*/
     }
 }

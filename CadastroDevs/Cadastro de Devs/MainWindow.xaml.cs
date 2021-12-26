@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cadastro_de_Devs.Devs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,48 @@ namespace Cadastro_de_Devs
         private void Alterar_Click(object sender, RoutedEventArgs e)
         {
             //ViewModel.Alterar();
+
+        }
+
+        private void BuscarDev_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Salvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SelecionaDev(object sender, MouseButtonEventArgs e)
+        {
+            var dataGrid = (DataGrid)sender;
+            if (dataGrid?.Items != null && dataGrid?.Items?.Count == 0)
+                return;
+            var dev = (Dev)dataGrid.Items.CurrentItem;
+            ViewModel.Desenvolvedor = dev;
+            DevUnico.Focus();
+
+        }
+
+        private void AtualizaDev(object sender, RoutedEventArgs e)
+        {
+            BindingExpression binding = IdDev.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateTarget();
+            binding = IdDev.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateTarget();
+            binding = NomeDev.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateTarget();
+            binding = AvatarDev.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateTarget();
+            binding = SquadDev.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateTarget();
+            binding = LoginDev.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateTarget();
+            binding = EmailDev.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateTarget();
+            binding = DataDev.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateTarget();
 
         }
     }
