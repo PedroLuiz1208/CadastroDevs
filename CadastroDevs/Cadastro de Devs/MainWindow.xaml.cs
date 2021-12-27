@@ -56,13 +56,14 @@ namespace Cadastro_de_Devs
 
         private void Alterar_Click(object sender, RoutedEventArgs e)
         {
-            //ViewModel.Alterar();
+            ViewModel.Alterar();
 
         }
 
-        private void BuscarDev_Click(object sender, RoutedEventArgs e)
+        private async void BuscarDev_Click(object sender, RoutedEventArgs e)
         {
-
+            var t = await ViewModel.BuscarDev(NomeDev.Text);
+            AtualizaDev(sender, e);
         }
 
         private void Salvar_Click(object sender, RoutedEventArgs e)
@@ -73,7 +74,7 @@ namespace Cadastro_de_Devs
         private void SelecionaDev(object sender, MouseButtonEventArgs e)
         {
             var dataGrid = (DataGrid)sender;
-            if (dataGrid?.Items != null && dataGrid?.Items?.Count == 0)
+            if (dataGrid?.Items == null || dataGrid?.Items?.Count == 0)
                 return;
             var dev = (Dev)dataGrid.Items.CurrentItem;
             ViewModel.Desenvolvedor = dev;
@@ -100,6 +101,11 @@ namespace Cadastro_de_Devs
             binding = DataDev.GetBindingExpression(TextBox.TextProperty);
             binding.UpdateTarget();
 
+        }
+
+        private void DataDev_LostFocus(object sender, RoutedEventArgs e)
+        {
+            return;
         }
     }
 }

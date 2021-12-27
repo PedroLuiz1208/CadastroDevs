@@ -11,12 +11,12 @@ namespace Cadastro_de_Devs
     {
         public List<Dev> Desenvolvedores = new List<Dev>();
 
-        public Dev _desenvolvedor;
+        private Dev _desenvolvedor;
 
         public Dev Desenvolvedor
         {
             get { return _desenvolvedor; }
-            set { _desenvolvedor = value;}
+            set { _desenvolvedor = value; }
         }
 
         public MainViewModel()
@@ -25,9 +25,27 @@ namespace Cadastro_de_Devs
             Desenvolvedores = auxDev.BuscaDevs().Result;
         }
 
-        private void BuscarDev()
+        public async Task<bool> BuscarDev(string name)
         {
+            if (Desenvolvedores == null || Desenvolvedores.Count == 0)
+                return false;
 
+            var dev = await FindDev(name);
+
+            if (dev != null)
+                Desenvolvedor = dev;
+            return true;
+        }
+
+        public async Task<Dev> FindDev(string name)
+        {
+            return Desenvolvedores.FirstOrDefault(x => x.Name.Contains(name));
+        }
+
+        public async Task Alterar()
+        {
+            DevServico auxDev = new DevServico();
+            await auxDev.AlteraDev(Desenvolvedor);
         }
     }
 }
