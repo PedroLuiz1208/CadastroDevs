@@ -37,29 +37,31 @@ namespace Cadastro_de_Devs
             itemCollectionViewSource = (CollectionViewSource)(FindResource("ItemCollectionViewSource"));
             itemCollectionViewSource.Source = ViewModel.Desenvolvedores;
         }
-        private void Ajustar_Click(object sender, RoutedEventArgs e)
+        private async void Ajustar_Click(object sender, RoutedEventArgs e)
         {
-            //ViewModel.Ajustar(long);
+            await ViewModel.Ajustar();
+            await AtualizaLista();
+        }
+
+        private async void Incluir_Click(object sender, RoutedEventArgs e)
+        {
+            await ViewModel.Incluir();
+            await AtualizaLista();
 
         }
 
-        private void AjustarSelecionados_Click(object sender, RoutedEventArgs e)
+        private async void Alterar_Click(object sender, RoutedEventArgs e)
         {
-            //ViewModel.Ajustar(long);
-
+            await ViewModel.Alterar();
+            await AtualizaLista();
         }
 
-        private void Incluir_Click(object sender, RoutedEventArgs e)
+        private async Task AtualizaLista()
         {
-            //ViewModel.Incluir();
+            LinkTable();
+            BindingExpression binding = ListaDevs.GetBindingExpression(DataGrid.ItemsSourceProperty);
+            binding.UpdateSource();
         }
-
-        private void Alterar_Click(object sender, RoutedEventArgs e)
-        {
-            ViewModel.Alterar();
-
-        }
-
         private async void BuscarDev_Click(object sender, RoutedEventArgs e)
         {
             var t = await ViewModel.BuscarDev(NomeDev.Text);
@@ -73,12 +75,15 @@ namespace Cadastro_de_Devs
 
         private void SelecionaDev(object sender, MouseButtonEventArgs e)
         {
+            ListaDevs.Focus();
+
             var dataGrid = (DataGrid)sender;
             if (dataGrid?.Items == null || dataGrid?.Items?.Count == 0)
                 return;
             var dev = (Dev)dataGrid.Items.CurrentItem;
             ViewModel.Desenvolvedor = dev;
             DevUnico.Focus();
+            AtualizaDev(sender, e);
 
         }
 
@@ -103,9 +108,10 @@ namespace Cadastro_de_Devs
 
         }
 
-        private void DataDev_LostFocus(object sender, RoutedEventArgs e)
+        private void AnyLostDocus(object sender, RoutedEventArgs e)
         {
             return;
         }
+
     }
 }

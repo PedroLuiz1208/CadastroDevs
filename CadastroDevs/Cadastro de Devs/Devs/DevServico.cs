@@ -67,5 +67,29 @@ namespace Cadastro_de_Devs.Devs
             HttpResponseMessage response = client.PutAsync($"https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev/{dev.Id}", httpContent).Result;
 
         }
+
+        public async Task IncluirDev(Dev Desenvolvedor)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                await IncluirDevAsyn(client, Desenvolvedor);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao Incluir Desenvolvedor:{Desenvolvedor.Name}");
+
+            }
+        }
+        public async Task IncluirDevAsyn(HttpClient client, Dev dev)
+        {
+            client.BaseAddress = new Uri("https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev");
+
+            var jsonDev = JsonConvert.SerializeObject(dev);
+
+            HttpContent httpContent = new StringContent(jsonDev, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.PostAsync($"https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev", httpContent).Result;
+
+        }
     }
 }
