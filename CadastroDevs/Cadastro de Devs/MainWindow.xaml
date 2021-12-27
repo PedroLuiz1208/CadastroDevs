@@ -73,25 +73,25 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="ID" Grid.Row="0" Grid.Column="0"/>
-                            <TextBox  Grid.Row="2" Grid.Column="0" IsEnabled="False" LostFocus="AnyLostDocus" x:Name="IdDev" Width="50" Text="{Binding Desenvolvedor.Id, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" RenderTransformOrigin="0.5,0.45" Margin="0,9,150,-9"/>
+                            <TextBox  Grid.Row="2" Grid.Column="0" IsEnabled="False" LostFocus="AnyLostDocus" x:Name="IdDev" Width="50" Text="{Binding Desenvolvedor.id, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" RenderTransformOrigin="0.5,0.45" Margin="0,9,150,-9"/>
 
                             <TextBlock Text="DATA DE CRIAÇÃO" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="39,0,222,18" Grid.RowSpan="3"/>
-                            <TextBox Grid.Row="2" IsEnabled="False" Grid.Column="1" x:Name="DataDev" LostFocus="AnyLostDocus" Text="{Binding Desenvolvedor.CreatedAt,  UpdateSourceTrigger=PropertyChanged,Mode=OneWayToSource}" Margin="39,9,160,-9" Grid.ColumnSpan="2"/>
+                            <TextBox Grid.Row="2" IsEnabled="False" Grid.Column="1" x:Name="DataDev" LostFocus="AnyLostDocus" Text="{Binding Desenvolvedor.createdAt,  UpdateSourceTrigger=PropertyChanged,Mode=OneWayToSource}" Margin="39,9,160,-9" Grid.ColumnSpan="2"/>
 
                             <TextBlock Text="NOME" Grid.Row="2" Grid.Column="0" Margin="0,34,0,-34"/>
-                            <TextBox  LostFocus="AnyLostDocus" Grid.Row="2" Grid.Column="0" x:Name="NomeDev" Text="{Binding Desenvolvedor.Name, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Margin="0,52,0,-52"/>
+                            <TextBox  LostFocus="AnyLostDocus" Grid.Row="2" Grid.Column="0" x:Name="NomeDev" Text="{Binding Desenvolvedor.name, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Margin="0,52,0,-52"/>
 
                             <TextBlock Text="AVATAR" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="39,35,211,-35" />
-                            <TextBox  LostFocus="AnyLostDocus" Grid.Row="2" Grid.Column="1" x:Name="AvatarDev" Text="{Binding Desenvolvedor.Avatar, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Grid.ColumnSpan="2" Margin="39,52,124,-52"/>
+                            <TextBox  LostFocus="AnyLostDocus" Grid.Row="2" Grid.Column="1" x:Name="AvatarDev" Text="{Binding Desenvolvedor.avatar, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Grid.ColumnSpan="2" Margin="39,52,124,-52"/>
 
                             <TextBlock Text="SQUAD" Grid.Row="2" Grid.Column="2" Margin="202,37,-201,-35" />
-                            <TextBox  LostFocus="AnyLostDocus" Grid.Row="2" Grid.Column="2" x:Name="SquadDev" Text="{Binding Desenvolvedor.Squad, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Margin="195,52,-120,-52"/>
+                            <TextBox  LostFocus="AnyLostDocus" Grid.Row="2" Grid.Column="2" x:Name="SquadDev" Text="{Binding Desenvolvedor.squad, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Margin="195,52,-120,-52"/>
 
                             <TextBlock Text="LOGIN" Grid.Row="2" Grid.Column="0" Margin="0,86,0,-86"/>
-                            <TextBox  LostFocus="AnyLostDocus" Grid.Row="2"  Grid.Column="0" x:Name="LoginDev" Text="{Binding Desenvolvedor.Login, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Margin="0,104,0,-104"/>
+                            <TextBox  LostFocus="AnyLostDocus" Grid.Row="2"  Grid.Column="0" x:Name="LoginDev" Text="{Binding Desenvolvedor.login, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Margin="0,104,0,-104"/>
 
                             <TextBlock Text="EMAIL" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="39,86,161,-86"/>
-                            <TextBox   LostFocus="AnyLostDocus" Grid.Row="2" Grid.Column="1" x:Name="EmailDev" Text="{Binding Desenvolvedor.Email, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Grid.ColumnSpan="2" Margin="39,104,124,-104"/>
+                            <TextBox   LostFocus="AnyLostDocus" Grid.Row="2" Grid.Column="1" x:Name="EmailDev" Text="{Binding Desenvolvedor.email, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Grid.ColumnSpan="2" Margin="39,104,124,-104"/>
                         </Grid>
 
                     </Menu>

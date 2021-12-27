@@ -39,21 +39,27 @@ namespace Cadastro_de_Devs
         }
         private async void Ajustar_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = System.Windows.Input.Cursors.Wait;
             await ViewModel.Ajustar();
             await AtualizaLista();
+            Cursor = null;
         }
 
         private async void Incluir_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = System.Windows.Input.Cursors.Wait;
             await ViewModel.Incluir();
+            ViewModel.Desenvolvedores.Add(ViewModel.Desenvolvedor);
             await AtualizaLista();
-
+            Cursor = null;
         }
 
         private async void Alterar_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = System.Windows.Input.Cursors.Wait;
             await ViewModel.Alterar();
             await AtualizaLista();
+            Cursor = null;
         }
 
         private async Task AtualizaLista()
@@ -64,19 +70,16 @@ namespace Cadastro_de_Devs
         }
         private async void BuscarDev_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = System.Windows.Input.Cursors.Wait;
             var t = await ViewModel.BuscarDev(NomeDev.Text);
             AtualizaDev(sender, e);
-        }
-
-        private void Salvar_Click(object sender, RoutedEventArgs e)
-        {
-
+            Cursor = null;
         }
 
         private void SelecionaDev(object sender, MouseButtonEventArgs e)
         {
             ListaDevs.Focus();
-
+            Cursor = System.Windows.Input.Cursors.Wait;
             var dataGrid = (DataGrid)sender;
             if (dataGrid?.Items == null || dataGrid?.Items?.Count == 0)
                 return;
@@ -84,6 +87,7 @@ namespace Cadastro_de_Devs
             ViewModel.Desenvolvedor = dev;
             DevUnico.Focus();
             AtualizaDev(sender, e);
+            Cursor = null;
 
         }
 

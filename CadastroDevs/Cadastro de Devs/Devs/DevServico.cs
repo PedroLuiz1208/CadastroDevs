@@ -53,7 +53,7 @@ namespace Cadastro_de_Devs.Devs
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao Alterar Desenvolvedor:{Desenvolvedor.Name}");
+                MessageBox.Show($"Erro ao Alterar Desenvolvedor:{Desenvolvedor.name}");
 
             }
         }
@@ -64,7 +64,7 @@ namespace Cadastro_de_Devs.Devs
             var jsonDev = JsonConvert.SerializeObject(dev);
             
             HttpContent httpContent = new StringContent(jsonDev, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = client.PutAsync($"https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev/{dev.Id}", httpContent).Result;
+            HttpResponseMessage response = client.PutAsync($"https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev/{dev.id}", httpContent).Result;
 
         }
 
@@ -77,7 +77,7 @@ namespace Cadastro_de_Devs.Devs
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao Incluir Desenvolvedor:{Desenvolvedor.Name}");
+                MessageBox.Show($"Erro ao Incluir Desenvolvedor:{Desenvolvedor.name}");
 
             }
         }

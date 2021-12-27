@@ -41,7 +41,7 @@ namespace Cadastro_de_Devs
 
         public async Task<Dev> FindDev(string name)
         {
-            return Desenvolvedores.FirstOrDefault(x => x.Name.Contains(name));
+            return Desenvolvedores.FirstOrDefault(x => x.name.Contains(name));
         }
 
         public async Task Alterar()
@@ -52,8 +52,8 @@ namespace Cadastro_de_Devs
 
         public async Task Incluir()
         {
-            Desenvolvedor.Id = Desenvolvedores.OrderBy(x => x.Id).LastOrDefault().Id + 1;
-            Desenvolvedor.CreatedAt = DateTime.Now;
+            Desenvolvedor.id = Desenvolvedores.OrderBy(x => x.id).LastOrDefault().id + 1;
+            Desenvolvedor.createdAt = DateTime.Now;
             DevServico auxDev = new DevServico();
             await auxDev.IncluirDev(Desenvolvedor);
         }
@@ -70,7 +70,9 @@ namespace Cadastro_de_Devs
             Desenvolvedores?.ForEach(async x =>
             {
                 DevServico auxDev = new DevServico();
-                x.Email = await Ajustar(x.Email);
+                if (x.email.Contains("@prosoft.com.br"))
+                    return;
+                x.email = await Ajustar(x.email);
                 await auxDev.AlteraDev(x);
             });
         }

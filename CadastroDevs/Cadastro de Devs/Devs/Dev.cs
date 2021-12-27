@@ -8,19 +8,28 @@ namespace Cadastro_de_Devs.Devs
 {
     public class Dev
     {
-        public long Id { get; set; }
+        public long id { get; set; }
 
-        public string Name { get; set; }
+        public string name { get; set; }
 
-        public string Avatar { get; set; }
+        public string avatar { get; set; }
 
-        public string Squad { get; set; }
+        public string squad { get; set; }
 
-        public string Login { get; set; }
+        public string login { get; set; }
 
-        public string Email { get; set; }
+        public string email { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime createdAt { get; set; }
+
+        /*public static bool Validate(Dev dev)
+        {
+            long lParse;
+            if (dev.email.Contains("@"))
+                return false;
+
+            return true;
+        }*/
 
     }
 }
