@@ -63,14 +63,14 @@ namespace Cadastro_de_Devs
             if (!email.Contains("@"))
                 return email;
 
-            return email.Split('@')[0] + "@prosoft.com.br";
+            return email.Split('@')[0] + "@developer.com.br";
         }
         public async Task Ajustar()
         {
             Desenvolvedores?.ForEach(async x =>
             {
                 DevServico auxDev = new DevServico();
-                if (x.email.Contains("@prosoft.com.br"))
+                if (x.email.Contains("@developer.com.br"))
                     return;
                 x.email = await Ajustar(x.email);
                 await auxDev.AlteraDev(x);
