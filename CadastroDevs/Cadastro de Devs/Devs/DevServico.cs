@@ -35,7 +35,7 @@ namespace Cadastro_de_Devs.Devs
 
         public async Task<List<Dev>> BuscaDevsAsync(HttpClient client)        
         {        
-            client.BaseAddress = new Uri("https://61a170e06c3b400017e69d00.mockapi.io/DevTest");
+            client.BaseAddress = new Uri("Default");
 
             HttpResponseMessage response = client.GetAsync("/Dev").Result; //HttpResponseMessage response = await client.GetAsync("/Dev");
             var usuarios = await response.Content.ReadAsStringAsync();
@@ -59,12 +59,12 @@ namespace Cadastro_de_Devs.Devs
         }
         public async Task AlteraDevAsyn(HttpClient client, Dev dev)
         {
-            client.BaseAddress = new Uri("https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev");
+            client.BaseAddress = new Uri("Default");
 
             var jsonDev = JsonConvert.SerializeObject(dev);
             
             HttpContent httpContent = new StringContent(jsonDev, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = client.PutAsync($"https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev/{dev.id}", httpContent).Result;
+            HttpResponseMessage response = client.PutAsync($"Default/DevTest/Dev/{dev.id}", httpContent).Result;
 
         }
 
@@ -83,12 +83,12 @@ namespace Cadastro_de_Devs.Devs
         }
         public async Task IncluirDevAsyn(HttpClient client, Dev dev)
         {
-            client.BaseAddress = new Uri("https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev");
+            client.BaseAddress = new Uri("Default/DevTest/Dev");
 
             var jsonDev = JsonConvert.SerializeObject(dev);
 
             HttpContent httpContent = new StringContent(jsonDev, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = client.PostAsync($"https://61a170e06c3b400017e69d00.mockapi.io/DevTest/Dev", httpContent).Result;
+            HttpResponseMessage response = client.PostAsync($"Default/DevTest/Dev", httpContent).Result;
 
         }
     }
