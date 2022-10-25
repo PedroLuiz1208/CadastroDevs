@@ -1,14 +1,12 @@
-﻿using System;
-using System.IO;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Newtonsoft.Json;
-using System.Text.Json;
-using System.Data;
 
 namespace Cadastro_de_Devs.Devs
 {
@@ -18,9 +16,9 @@ namespace Cadastro_de_Devs.Devs
 
         public async Task<List<Dev>> BuscaDevs()
         {
-            List<Dev> devs = new List<Dev>();   
+            List<Dev> devs = new List<Dev>();
             HttpClient client = new HttpClient();
-            
+
             try
             {
                 devs = await BuscaDevsAsync(client);
@@ -33,13 +31,13 @@ namespace Cadastro_de_Devs.Devs
             }
         }
 
-        public async Task<List<Dev>> BuscaDevsAsync(HttpClient client)        
-        {        
+        public async Task<List<Dev>> BuscaDevsAsync(HttpClient client)
+        {
             client.BaseAddress = new Uri("Default");
 
             HttpResponseMessage response = client.GetAsync("/Dev").Result; //HttpResponseMessage response = await client.GetAsync("/Dev");
             var usuarios = await response.Content.ReadAsStringAsync();
-   
+
             var listDev = JsonConvert.DeserializeObject<List<Dev>>(usuarios).AsEnumerable().ToList();
             return listDev;
         }
@@ -62,7 +60,7 @@ namespace Cadastro_de_Devs.Devs
             client.BaseAddress = new Uri("Default");
 
             var jsonDev = JsonConvert.SerializeObject(dev);
-            
+
             HttpContent httpContent = new StringContent(jsonDev, Encoding.UTF8, "application/json");
             HttpResponseMessage response = client.PutAsync($"Default/DevTest/Dev/{dev.id}", httpContent).Result;
 

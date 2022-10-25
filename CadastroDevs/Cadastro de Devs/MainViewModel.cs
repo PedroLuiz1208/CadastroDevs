@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Cadastro_de_Devs.Devs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
-using Cadastro_de_Devs.Devs;
 
 namespace Cadastro_de_Devs
 {
